@@ -19,7 +19,7 @@ function renderizarUsuarios(personas) { // [{},{},{}]
     var html = '';
 
     html += '<li>';
-    html += '    <a href="javascript:void(0)" class="active"> Sala: <span> ' + params.get('sala') + '</span></a>';
+    html += '    <a href="javascript:void(0)" class="active"> Sala: <span> ' + params.get('sala') + ', on line:' + personas.length + '</span></a>';
     html += '</li>';
 
     for (var i = 0; i < personas.length; i++) {
