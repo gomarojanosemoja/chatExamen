@@ -1,8 +1,16 @@
 const { io } = require('../server');
 const { Usuarios } = require('../classes/usuarios');
 const { crearMensaje } = require('../utilidades/utilidades');
-
+const { Router } = require('express');
+const router = Router();
 const usuarios = new Usuarios();
+
+router.get('/', (req, res) => {
+    res.json({
+        UsuariosConectados: usuarios.getPersonas().length,
+        usuarios: usuarios.getPersonas()
+    });
+});
 
 io.on('connection', (client) => {
 
@@ -57,3 +65,5 @@ io.on('connection', (client) => {
     });
 
 });
+
+module.exports = router;
